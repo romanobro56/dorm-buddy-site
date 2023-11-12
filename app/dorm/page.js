@@ -31,7 +31,7 @@ const page = () => {
   }
 
   const deleteDormPage = async () => {
-    await fetch("http://localhost:3001/dorm/delete", {
+    await fetch("https://dorm-buddy-backend-production.up.railway.app/dorm/delete", {
       method: "DELETE",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -46,7 +46,7 @@ const page = () => {
   }
 
   const updateDormStatus = async () => {
-    await fetch("http://localhost:3001/dorm/status", {
+    await fetch("https://dorm-buddy-backend-production.up.railway.app/dorm/status", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -76,7 +76,7 @@ const page = () => {
   }, [])
 
   const updateDormDesc = async () => {
-    await fetch("http://localhost:3001/dorm/updatedescription", {
+    await fetch("https://dorm-buddy-backend-production.up.railway.app/dorm/updatedescription", {
       method: "PUT",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),

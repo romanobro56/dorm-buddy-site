@@ -12,7 +12,7 @@ const page = () => {
   }, [])
 
   const retrieveUserData = async () => {
-    await fetch("http://localhost:3001/users/profile", {
+    await fetch("https://dorm-buddy-backend-production.up.railway.app/users/profile", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -30,7 +30,7 @@ const page = () => {
   }
 
   const createNewDorm = async () => {
-    await fetch("http://localhost:3001/dorm/create", {
+    await fetch("https://dorm-buddy-backend-production.up.railway.app/dorm/create", {
       method: "POST",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),

@@ -9,7 +9,7 @@ const Login = () => {
       <div className={styles.accountContainer}>
         <p className={styles.accountText}>Login</p>
         <button className={styles.changeButton} onClick={()=>{
-          window.location.replace("http://localhost:3000/signup")
+          window.location.replace("https://dorm-buddy-site.vercel.app/signup")
         }}><p className={styles.changeText}>Click here to sign up</p></button>
         <input type='text' className={styles.accountInput} placeholder='email' id='emailinput'></input>
         <input type='password' className={styles.accountInput} placeholder='password' id='passwordinput'></input>
@@ -17,7 +17,7 @@ const Login = () => {
           const mail = document.getElementById('emailinput')
           const password = document.getElementById('passwordinput')
           if (mail.value && password.value) { 
-            await fetch( "http://localhost:3001/users/login", {
+            await fetch( "https://dorm-buddy-backend-production.up.railway.app/users/login", {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ const Login = () => {
             .then(data => { 
               if (data.token) {
                 localStorage.setItem('token', data.token)
-                window.location.replace("http://localhost:3000/")
+                window.location.replace("https://dorm-buddy-site.vercel.app/")
               } else {
                 console.log("failed to sign up")
               }

@@ -9,7 +9,7 @@ const App = () => {
   const [ userObj, setUserObj ] = useState(null);
 
   const retrieveUserData = async () => {
-    await fetch("http://localhost:3001/users/profile", {
+    await fetch("https://dorm-buddy-backend-production.up.railway.app/users/profile", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),
