@@ -1,0 +1,71 @@
+.dashboardContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.doorOpenedAndTempWidgets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100vh;
+}
+
+.tempWidget {
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #3498db;
+}
+
+.tempImage {
+  width: 30%;
+  height: 100%;
+}
+
+.tempTextFields {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.doorOpenedWidget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #3498db;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.doorLastOpenedHeader {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.doorLastOpenedText, .doorOpensHeader {
+  font-size: 1rem;
+}
+
+.doorOpensContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: scroll;
+  border-radius: 6px;
+}
+
+.dormStatusWidget {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #3498db;
+  width: 50%;
+  margin: 0 0 0 20px;
+}
+
+

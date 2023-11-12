@@ -1,0 +1,6 @@
+.doorOpenEntry {
+  display: flex;
+  align-items: left;
+  width: 100%;
+  background-color: #f1e5e5;
+}

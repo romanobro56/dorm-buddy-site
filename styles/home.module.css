@@ -1,0 +1,37 @@
+
+.dashboard {
+  background-color: #3498db;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  text-align: center;
+}
+
+.dataField {
+  margin-bottom: 20px;
+}
+
+.dataField label {
+  font-size: 18px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.data-field p {
+  font-size: 24px;
+  margin: 0;
+}
+
+.loginNotice {
+  font-size: 18px;
+  margin-top: 20px;
+  width: 100%
+}
+
+.loginNoticeText {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
