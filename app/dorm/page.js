@@ -2,6 +2,11 @@
 import { useState, useEffect } from 'react'
 import styles from "@styles/dorm.module.css"
 import DoorOpenEntry from "@components/DoorOpenEntry.js"
+import NavBar from "@components/NavBar.js"
+
+import { Poppins, Libre_Baskerville } from 'next/font/google'
+const poppins = Poppins({weight: "500", subsets: ["latin-ext"]})
+const libreBaskerville = Libre_Baskerville({weight: "400", subsets: ["latin-ext"]})
 
 const page = () => {
   const [dormStatus, setDormStatus] = useState(null)
@@ -25,8 +30,23 @@ const page = () => {
     return formattedTime;
   }
 
-  useEffect(() => {
-    fetch("http://localhost:3001/dorm/status", {
+  const deleteDormPage = async () => {
+    await fetch("http://localhost:3001/dorm/delete", {
+      method: "DELETE",
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("token"),
+        "Content-Type": "application/json"
+      },
+      redirect: "follow"
+    }).then(response => response.json())
+    .then(data => {
+      console.log(data)
+      window.location.replace("/dorm/create")
+    })
+  }
+
+  const updateDormStatus = async () => {
+    await fetch("http://localhost:3001/dorm/status", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -35,15 +55,24 @@ const page = () => {
       redirect: "follow"
     }).then(response => response.json())
     .then(async data => {
-      console.log(data)
-      setDormStatus(data)
-      setTemp(data.dormTemperature)
-      setHumidity(data.dormHumidity)
-      setDormDescription(data.dormDescription)
-      setDoorLastOpened(changeTimeFormat(data.doorLastOpened))
+      if (data === "Dorm Not found attached to the given user") {
+        alert("There was no dorm found connected to your account")
+        window.location.replace("/dorm/create")
+      } else {
+        setDormStatus(data)
+        setTemp(data.dormTemperature)
+        setHumidity(data.dormHumidity)
+        setDormDescription(data.dormDescription)
+        setDoorLastOpened(changeTimeFormat(data.doorLastOpened))
+      }
     }).catch(err => {
       console.log(err)
     })
+  }
+
+
+  useEffect(() => {
+    updateDormStatus()
   }, [])
 
   const updateDormDesc = async () => {
@@ -60,21 +89,30 @@ const page = () => {
   }
   return (
   <>
+    <NavBar />
     <div className={styles.dashboardContainer}>
-      <div className={styles.doorOpenedAndTempWidgets}>
-        <div className={styles.tempWidget}>
-          <div className={styles.tempImage}>
-            <img className={styles.tempImage} src="/weather.webp" width={200} height={100}></img>
-          </div>
-          <div className={styles.tempTextFields}>
-            <p className={styles.temperatureText}>Current Dorm Temperature: {temp}</p>
-            <p className={styles.humidityText}>Current Dorm Humidity: {humidity}</p>
-          </div>
+      <div className={styles.doorOpenedAndStatusWidgets}>
+      <div className={styles.dormStatusWidget}>
+          <h2 className={styles.dormStatusTitle + " " + poppins.className}>{dormStatus?.dormName}</h2>
+          <p className={styles.dormStatusText + " " + poppins.className}>Dorm Status: {dormStatus?.dormStatus}</p>
+
+          {!editMode? 
+          <>
+            <textarea className={styles.dormStatusDescription + " " + libreBaskerville.className} value={dormDescription? dormDescription: "Empty Description, click below to edit."} readOnly role="textbox"></textarea> 
+            <button className={styles.editDormStatusButton} onClick={() => setEditMode(true)}>Edit</button>
+          </>
+          :
+          <>
+            <input className={styles.editDormStatusDescription} type="text" onChange={(e) => setDormDescription(e.target.value)}></input>
+            <button className={styles.saveDormStatusButton} onClick={() => {setEditMode(false); updateDormDesc()}}>Save</button>
+          </>
+          }
         </div>
+        
         <div className={styles.doorOpenedWidget}>
-          <h2 className={styles.doorLastOpenedHeader}>Door Last Opened:</h2>
-          <p className={styles.doorLastOpenedText}>{doorLastOpened}</p>
-          <p className={styles.doorOpensHeader}>Door Opens:</p>
+          <h2 className={styles.doorLastOpenedHeader + " " + poppins.className}>Door Last Opened:</h2>
+          <p className={styles.doorLastOpenedText + " " + poppins.className}>{doorLastOpened}</p>
+          <p className={styles.doorOpensHeader + " " + poppins.className}>Door Opens:</p>
           <div className={styles.doorOpensContainer}>
           {dormStatus?.doorOpensTimes?.map((time) => {
             return <DoorOpenEntry rawTime={time} />
@@ -83,30 +121,21 @@ const page = () => {
         </div>
 
       </div>
-      <div className={styles.dormStatusWidget}>
-        <h2 className={styles.dormStatusTitle}></h2>
-        <p className={styles.dormStatusText}>{dormStatus?.text}</p>
-        <img className={styles.dormStatusImage} src={dormStatus?.image}></img>
-
-        {!editMode? 
-        <>
-          <textarea className={styles.dormStatusDescription} value={dormDescription? dormDescription: "Empty Description, click below to edit."} readOnly role="textbox"></textarea> 
-          <button className={styles.editDormStatusButton} onClick={() => setEditMode(true)}>Edit</button>
-        </>
-        :
-        <>
-          <input className={styles.editDormStatusDescription} type="text" onChange={(e) => setDormDescription(e.target.value)}></input>
-          <button className={styles.saveDormStatusButton} onClick={() => {setEditMode(false); updateDormDesc()}}>Save</button>
-        </>
-
-        }
-        
-  
+      <div className={styles.dormTempAndButtons}>
+      <div className={styles.tempWidget}>
+        <div className={styles.tempImage}>
+            <img className={styles.tempImage} src="/weather.webp" height={100}></img>
+          </div>
+          <div className={styles.tempTextFields}>
+            <p className={styles.temperatureText + " " + poppins.className}>Current Dorm Temperature: {temp}</p>
+            <p className={styles.humidityText + " " + poppins.className}>Current Dorm Humidity: {humidity}</p>
+          </div>
+        </div>
+        <div className={styles.dormStatusButtons}>
+          <button className={styles.deleteDashboardButton} onClick={() => {deleteDormPage()}}>Delete Dashboard</button>
+        </div>
       </div>
-    </div>
-    <div className={styles.bottomButtonsContainer}>
-      <button className={styles.deleteDashboardButton}></button>
-      <button className={styles.connectNewDashboardButton}></button>
+      
     </div>
 
   </>

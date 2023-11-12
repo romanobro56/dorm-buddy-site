@@ -1,0 +1,35 @@
+.navBar {
+  width: auto;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #8ccaf3;
+  padding: 0 20px 20px 20px;
+  margin-bottom: 20px;
+}
+
+.navBarText {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.navBarText > div {
+  background-color: #1c5174;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.navBarTitle {
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 20px;
+  margin-top: 30px;
+  text-decoration: none;
+}

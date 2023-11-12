@@ -1,10 +1,10 @@
 .dashboardContainer {
   display: flex;
-  width: 100%;
-  align-items: center;
+  width: auto;
+  padding: 20px;
 }
 
-.doorOpenedAndTempWidgets {
+.doorOpenedAndStatusWidgets {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,12 +16,12 @@
   display: flex;
   width: 100%;
   border-radius: 10px;
+  margin-left: 10px;
   background-color: #3498db;
 }
 
 .tempImage {
-  width: 30%;
-  height: 100%;
+  margin: 20px;
 }
 
 .tempTextFields {
@@ -29,7 +29,7 @@
   flex-direction: column;
   width: 70%;
   height: 100%;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .doorOpenedWidget {
@@ -40,6 +40,7 @@
   background-color: #3498db;
   border-radius: 10px;
   margin-top: 20px;
+  margin-right: 10px;
 }
 
 .doorLastOpenedHeader {
@@ -59,13 +60,55 @@
   border-radius: 6px;
 }
 
+.dormTempAndButtons {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100vh;
+}
+
 .dormStatusWidget {
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  width: 100%;
   background-color: #3498db;
-  width: 50%;
-  margin: 0 0 0 20px;
+  margin: 0 10px 0 0;
+  height: min-content
 }
 
+.dormStatusTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0 0 20px;
+}
 
+.dormStatusText {
+  font-size: 1rem;
+  margin: 0 0 30px 20px;
+}
+
+.dormStatusButtons {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0 10px;
+}
+
+.deleteDashboardButton {
+  background-color: #b03737;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  color: white;
+  border-style: none;
+}
+
+.connectNewButton {
+  background-color: #4ca678;
+  width: auto;
+  height: 40px;
+  border-radius: 8px;
+  margin: 20px 0 0 0;
+  color: white;
+  border-style: none;
+}
