@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #8ccaf3;
+  background-color: #54cde2;
   padding: 0 20px 20px 20px;
   margin-bottom: 20px;
 }
@@ -18,7 +18,7 @@
 }
 
 .navBarText > div {
-  background-color: #1c5174;
+  background-color: #15668b;
   width: 100px;
   height: 30px;
   text-align: center;

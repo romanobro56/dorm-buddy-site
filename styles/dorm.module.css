@@ -17,7 +17,7 @@
   width: 100%;
   border-radius: 10px;
   margin-left: 10px;
-  background-color: #3498db;
+  background-color: #22b3db;
 }
 
 .tempImage {
@@ -37,7 +37,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: #3498db;
+  background-color: #22b3db;
   border-radius: 10px;
   margin-top: 20px;
   margin-right: 10px;
@@ -72,9 +72,10 @@
   flex-direction: column;
   border-radius: 10px;
   width: 100%;
-  background-color: #3498db;
+  background-color: #22b3db;
   margin: 0 10px 0 0;
-  height: min-content
+  height: min-content;
+  padding-bottom: 10px;
 }
 
 .dormStatusTitle {
@@ -88,10 +89,22 @@
   margin: 0 0 30px 20px;
 }
 
-.dormStatusButtons {
+.dormStatusDescription {
+  font-size: 0.8rem;
+  border-radius: 6px;
+  margin: 0 20px 20px 20px;
+  border-style: none;
+  height: 60px;
+}
+
+.dormStatusButton {
   display: flex;
   flex-direction: column;
-  margin: 20px 0 0 10px;
+  margin: 0 20px 10px 20px;
+  text-align: center;
+  border-radius: 6px;
+  height: 30px;
+  border-style: none;
 }
 
 .deleteDashboardButton {
@@ -101,14 +114,39 @@
   border-radius: 8px;
   color: white;
   border-style: none;
+  margin: 20px 0 0 10px;
 }
 
-.connectNewButton {
-  background-color: #4ca678;
-  width: auto;
-  height: 40px;
-  border-radius: 8px;
-  margin: 20px 0 0 0;
-  color: white;
-  border-style: none;
+
+@media screen and (max-width: 600px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+
+  .doorOpenedAndStatusWidgets {
+    margin: 20px 0 0 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .dormTempAndButtons {
+    margin: 20px 0 0 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .tempWidget {
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .dormStatusButtons{
+    margin: 20px 0 0 0;
+  }
+
+  .deleteDashboardButton {
+    margin: 20px 0 0 0;
+  }
+  
 }

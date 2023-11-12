@@ -16,6 +16,11 @@ const page = () => {
   const [doorLastOpened, setDoorLastOpened] = useState(null)
   const [editMode, setEditMode] = useState(false)
 
+  const logOut = () => {
+    localStorage.removeItem("token")
+    window.location.replace("/")
+  }
+
   function changeTimeFormat(dateString) {
     // Parse the UTC date string
     const date = new Date(dateString);
@@ -99,12 +104,12 @@ const page = () => {
           {!editMode? 
           <>
             <textarea className={styles.dormStatusDescription + " " + libreBaskerville.className} value={dormDescription? dormDescription: "Empty Description, click below to edit."} readOnly role="textbox"></textarea> 
-            <button className={styles.editDormStatusButton} onClick={() => setEditMode(true)}>Edit</button>
+            <button className={styles.dormStatusButton} onClick={() => setEditMode(true)}>Edit</button>
           </>
           :
           <>
-            <input className={styles.editDormStatusDescription} type="text" onChange={(e) => setDormDescription(e.target.value)}></input>
-            <button className={styles.saveDormStatusButton} onClick={() => {setEditMode(false); updateDormDesc()}}>Save</button>
+            <input className={styles.dormStatusDescription} type="text" onChange={(e) => setDormDescription(e.target.value)}></input>
+            <button className={styles.dormStatusButton} onClick={() => {setEditMode(false); updateDormDesc()}}>Save</button>
           </>
           }
         </div>
@@ -131,9 +136,8 @@ const page = () => {
             <p className={styles.humidityText + " " + poppins.className}>Current Dorm Humidity: {humidity}</p>
           </div>
         </div>
-        <div className={styles.dormStatusButtons}>
+          <button className={styles.deleteDashboardButton} onClick={() => {logOut()}}>Log Out</button>
           <button className={styles.deleteDashboardButton} onClick={() => {deleteDormPage()}}>Delete Dashboard</button>
-        </div>
       </div>
       
     </div>
