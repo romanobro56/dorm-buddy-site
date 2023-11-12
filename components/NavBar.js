@@ -24,7 +24,7 @@ const NavBar = () => {
     <div className={styles.navBar}>
       <Link href="/" className={styles.navBarText + " " + libreBaskerville.className}><div>Home</div></Link>
       <h1 className={styles.navBarTitle + " " + montSerrat.className}>Dorm Buddy</h1>
-      <Link href={signedIn ? "/dorm" : "/login"} className={styles.navBarText + " " + libreBaskerville.className}><div>Account</div></Link>
+      <Link href={signedIn ? "/dorm" : "/login"} className={styles.navBarText + " " + libreBaskerville.className}><div>{signedIn ? "Dorm" : "Account"}</div></Link>
     </div>
   )
 }
