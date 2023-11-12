@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import styles from "@styles/navBar.module.css"
+import styles from "@styles/navbar.module.css"
 
 import { Libre_Baskerville, Montserrat } from 'next/font/google'
 const libreBaskerville = Libre_Baskerville({weight: "400", subsets: ["latin-ext"]})
