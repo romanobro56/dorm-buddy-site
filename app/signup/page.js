@@ -9,7 +9,7 @@ const Signup = () => {
       <div className={styles.accountContainer}>
         <p className={styles.accountText}>Sign up</p>
         <button className={styles.changeButton} onClick={()=>{
-          window.location.replace("https://dorm-buddy-site.vercel.app/login")
+          window.location.replace("https://dormbuddy.tech/login")
         }}><p className={styles.changeText}>Click here to log in</p></button>
         <input type='text' className={styles.accountInput} id='emailinput' placeholder='email'></input>
         <input type='text' className={styles.accountInput} id='usernameinput' placeholder='username'></input>
@@ -34,7 +34,7 @@ const Signup = () => {
             console.log(data)
             if (data.token) {
               localStorage.setItem('token', data.token)
-              window.location.replace("https://dorm-buddy-site.vercel.app/")
+              window.location.replace("https://dormbuddy.tech/")
             } else {
               console.log("failed to sign up")
             }
