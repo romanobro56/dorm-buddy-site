@@ -65,8 +65,8 @@ const page = () => {
         window.location.replace("/dorm/create")
       } else {
         setDormStatus(data)
-        setTemp(data.dormTemperature)
-        setHumidity(data.dormHumidity)
+        setTemp(70.5)
+        setHumidity(24)
         setDormDescription(data.dormDescription)
         setDoorLastOpened(changeTimeFormat(data.doorLastOpened))
       }

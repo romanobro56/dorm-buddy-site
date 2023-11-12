@@ -24,5 +24,5 @@ https://dormbuddy.tech
 
 
 ## Acknowledgements
-- This project was brought together by the hardware put together and programmed by my beautiful partners in this hackathon! Credit goes to Jaden Borla, [Abhiram Kollipara](https://github.com/AbhiK1212), and Rishik Muthyala 
+- This project was made for HackUMass XI and brought together by the hardware put together and programmed by my beautiful partners! Credit goes to Jaden Borla, [Abhiram Kollipara](https://github.com/AbhiK1212), and Rishik Muthyala 
 
