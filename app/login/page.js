@@ -17,7 +17,7 @@ const Login = () => {
           const mail = document.getElementById('emailinput')
           const password = document.getElementById('passwordinput')
           if (mail.value && password.value) { 
-            await fetch( "https://dormbuddy.tech/users/login", {
+            await fetch( "https://dorm-buddy-backend-production.up.railway.app/users/login", {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
