@@ -60,7 +60,7 @@ const App = () => {
           <h1 className={styles.aboutUsText}>Dorm Buddy</h1>
           <h2 className={styles.dormBuddyCreators}>By Jaden Borla, Abhiram Kollipara, Rishik Muthyala and Roman Pisani</h2>
           <p className={styles.aboutUsDescription}>Dorm Buddy is a smart dorm management system that allows you to monitor your dorm's temperature, humidity, and door status. 
-            Dorm Buddy is a project created for HackUmass XI in 2023. On the software side, we used an Arduino with 3 status indicator LEDs, an ultrasonic sensor, a temperature and humidity sensor, and a remote receiver. 
+            Dorm Buddy is a project created for HackUmass XI in 2023. On the hardware side, we used an Arduino with 3 status indicator LEDs, an ultrasonic sensor, a temperature and humidity sensor, and a remote receiver. 
             The Arduino works by taking measurements of the environment at regular intervals, and sends them to MongoDB through Node.JS using SerialPort. The status of the room
             is set by the user, who wields the dorm buddy remote. There are three settings, Open, Quiet, and Do Not Enter, with the intention of streamlining shared living.
             This information is retrieved by the Next.js web application, that itself gets the information through an API Wrapper deployed on Railway. The API is built using Express and MongoDB, with an authentication built from scratch
